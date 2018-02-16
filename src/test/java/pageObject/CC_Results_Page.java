@@ -15,5 +15,11 @@ public class CC_Results_Page extends AbstractPage{
 		Assert.assertEquals(driver.getCurrentUrl(), "https://www.moneyhero.com.hk/en/credit-card/best-deals/results");
 		   
 	}
+
+	public void verifyURL1()
+	{
+		Assert.assertEquals(driver.getCurrentUrl(), "https://www.moneyhero.com.hk/en/credit-card/best-deals/results");
+		   
+	}
 	
 }
