@@ -24,6 +24,8 @@ public class Hooks {
 	{
 		if(!flag)
 		{
+
+			
 			System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
@@ -74,6 +76,7 @@ public class Hooks {
 	@After
 	public void teardown(Scenario scenario)
 	{
+		
 		final byte[] screenshot = ((TakesScreenshot) driver)
                 .getScreenshotAs(OutputType.BYTES);
     scenario.embed(screenshot, "image/png");
