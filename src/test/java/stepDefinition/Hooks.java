@@ -19,16 +19,21 @@ public class Hooks {
 	private static  boolean flag = false;
 	private WebDriver driver;
 	
+	 //ExtentReports logger;
+	 //ExtentTest test;
+	
 	@Before("@Chrome")
 	public void setUpChrome()
 	{
 		if(!flag)
 		{
 
-			
+			//logger = new ExtentReports(System.getProperty("user.dir")+"\\Reports\\ExtentReports.html",true);
+		//	test = logger.startTest("HK Test case");
 			System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
+		//	test.log(LogStatus.INFO, "browser is up and running");
 			flag=true;
 			
 		}	
@@ -81,6 +86,22 @@ public class Hooks {
                 .getScreenshotAs(OutputType.BYTES);
     scenario.embed(screenshot, "image/png");
 		flag=false;
+		/*if(scenario.isFailed())
+		{
+			test.log(LogStatus.FAIL, "Scenario failed");
+			logger.endTest(test);
+			logger.flush();
+			logger.close();
+		}
+		
+		else
+		{
+		    test.log(LogStatus.INFO, "closing browser");
+		    logger.endTest(test);
+			logger.flush();
+			logger.close();
+		    
+		}*/
 		driver.quit();
 	}
 	

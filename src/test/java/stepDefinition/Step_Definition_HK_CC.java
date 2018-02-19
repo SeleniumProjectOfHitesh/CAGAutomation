@@ -2,10 +2,6 @@ package stepDefinition;
 
 import org.openqa.selenium.WebDriver;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -22,13 +18,15 @@ public class Step_Definition_HK_CC
 	
 	HKHomePage homepage;
 	CC_Results_Page resultsPage;
-	ExtentReports logger = new ExtentReports(System.getProperty("user.dir")+"\\Reports\\ExtentReports.html",true);
-	ExtentTest test = logger.startTest("HK CC Test case");
+	//ExtentReports logger;
+	//ExtentTest test;
 	
 	
 	public Step_Definition_HK_CC(Hooks hook)
 	{
 		this.hook=hook;
+		//this.logger = hook.logger;
+		//this.test = hook.test;
 	}
 	
 	
@@ -38,6 +36,7 @@ public class Step_Definition_HK_CC
 	   driver = hook.getDriver();
 	   homepage = new HKHomePage(driver);
 	   driver = homepage.navigateToWebApp();
+	//   test.log(LogStatus.INFO, "Navigated to Home page");
 	   
 	}
 
@@ -46,6 +45,7 @@ public class Step_Definition_HK_CC
     public void i_click_on_credit_card_button_on_home_page() throws Throwable {
 		
 		resultsPage = homepage.navigateToHKCCPage();
+	//	test.log(LogStatus.INFO, "Navigated to CC Page");
     }
 	
 	
@@ -53,9 +53,8 @@ public class Step_Definition_HK_CC
     public void user_should_be_redirected_to_results_page_for_CCsuccessfully() throws Throwable
 	{
 		resultsPage.verifyURL();
-		test.log(LogStatus.PASS,"ULR Verfies successfully");
-		logger.endTest(test);
-		logger.flush();
+	//	test.log(LogStatus.PASS,"ULR Verfies successfully");
+		
 	}
 
 }

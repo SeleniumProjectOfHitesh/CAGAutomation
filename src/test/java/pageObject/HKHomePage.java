@@ -16,6 +16,7 @@ public class HKHomePage extends AbstractPage{
 		
       super(driver);
       PageFactory.initElements(driver, this);
+     // driver.get(object.getPropertyValue("appurl"));
       
 	}
 	
